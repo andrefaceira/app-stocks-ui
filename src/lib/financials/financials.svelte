@@ -35,7 +35,7 @@
 					year: 2020,
 					quarter: 1,
 					revenue: 1,
-					profit: 2
+					profit: null
 				},
 				// {
 				// 	year: 2020,
