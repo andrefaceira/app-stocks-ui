@@ -35,7 +35,13 @@
 					<td>{subRow.label}</td>
 
 					{#each subRow.values as value}
-						<td>{value[row.key]}</td>
+						<td>
+							{#if value[row.key]}
+								{value[row.key]}
+							{:else}
+								-
+							{/if}
+						</td>
 					{/each}
 				</tr>
 			{/each}
