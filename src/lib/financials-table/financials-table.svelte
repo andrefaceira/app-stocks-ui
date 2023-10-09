@@ -8,43 +8,45 @@
 	export let columns: FinancialsTableColumn[];
 </script>
 
-<table> 
-	{#each columns as column, i}
-		<thead>
-			<tr>
-				{#if i == 0}
-					<th rowspan={columns.length} colspan="2" />
-				{/if}
-
-				{#each data[0].values as value}
-					<th>{value[column.key]}</th>
-				{/each}
-			</tr>
-		</thead>
-	{/each}
-	{#each rows as row}
-		<tbody>
-			{#each data as subRow, i}
+<div class="overflow-x-auto">
+	<table class="table table-xs table-zebra"> 
+		{#each columns as column, i}
+			<thead>
 				<tr>
 					{#if i == 0}
-						<td rowspan={data.length}>
-							{row.label}
-						</td>
+						<th rowspan={columns.length} colspan="2" />
 					{/if}
 
-					<td>{subRow.label}</td>
-
-					{#each subRow.values as value}
-						<td>
-							{#if value[row.key]}
-								{value[row.key]}
-							{:else}
-								-
-							{/if}
-						</td>
+					{#each data[0].values as value}
+						<th>{value[column.key]}</th>
 					{/each}
 				</tr>
-			{/each}
-		</tbody>
-	{/each}
-</table>
+			</thead>
+		{/each}
+		{#each rows as row}
+			<tbody>
+				{#each data as subRow, i}
+					<tr>
+						{#if i == 0}
+							<td rowspan={data.length}>
+								{row.label}
+							</td>
+						{/if}
+
+						<td>{subRow.label}</td>
+
+						{#each subRow.values as value}
+							<td>
+								{#if value[row.key]}
+									{value[row.key]}
+								{:else}
+									-
+								{/if}
+							</td>
+						{/each}
+					</tr>
+				{/each}
+			</tbody>
+		{/each}
+	</table>
+</div>
