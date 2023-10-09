@@ -5,7 +5,7 @@
 
 	import FinancialsTable from '$lib/financials-table/financials-table.svelte';
 	
-    export let symbol: string;
+    // export let symbol: string;
 
     var rows: FinancialsTableRow[] = [
 		{
