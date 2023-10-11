@@ -9,16 +9,16 @@
 </script>
 
 <div class="overflow-x-auto">
-	<table class="table table-xs table-zebra"> 
+	<table class="table w-full table-zebra border-collapse border border-slate-500"> 
 		{#each columns as column, i}
 			<thead>
 				<tr>
 					{#if i == 0}
-						<th rowspan={columns.length} colspan="2" />
+						<th class="border border-slate-600" rowspan={columns.length} colspan="2" />
 					{/if}
 
 					{#each data[0].values as value}
-						<th>{value[column.key]}</th>
+						<th class="text-center border border-slate-600">{value[column.key]}</th>
 					{/each}
 				</tr>
 			</thead>
@@ -28,15 +28,15 @@
 				{#each data as subRow, i}
 					<tr>
 						{#if i == 0}
-							<td rowspan={data.length}>
+							<td class="text-center border border-slate-600" rowspan={data.length}>
 								{row.label}
 							</td>
 						{/if}
 
-						<td>{subRow.label}</td>
+						<td class="text-center border border-slate-600">{subRow.label}</td>
 
 						{#each subRow.values as value}
-							<td>
+							<td class="text-right border border-slate-600">
 								{#if value[row.key]}
 									{value[row.key]}
 								{:else}
