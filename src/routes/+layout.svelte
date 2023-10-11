@@ -3,11 +3,7 @@
 </script>
 
 <div class="app">
-	<main>
+	<main class="p-8 bg-base-200 h-screen">
 		<slot />
 	</main>
-
-	<footer>
-		<p>footer!</p>
-	</footer>
 </div>
