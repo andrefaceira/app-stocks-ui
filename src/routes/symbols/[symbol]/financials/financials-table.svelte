@@ -36,10 +36,10 @@
 						<td rowspan={row.subRows.length}>{row.value}</td>
 					{/if}
 
-					<td>{subRow.value}</td>
+					<td class="text-right">{subRow.value}</td>
 
 					{#each subRow.cells as cell}
-						<td>{cell}</td>
+						<td class="text-right">{cell}</td>
 					{/each}
 				</tr>
 			{/each}

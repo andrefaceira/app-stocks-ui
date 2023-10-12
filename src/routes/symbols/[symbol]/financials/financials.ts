@@ -3,7 +3,8 @@ export interface Financial {
     year: number;
     quarter: number;
     revenue?: number | null;
-    profit?: number | null;
+    profit?: number | null;  
+    
 }
 
 export interface SymbolFinancials {
@@ -122,6 +123,12 @@ function getFinancialsQuarterSingle(symbol: string): Financial[] {
         {
             year: 2022,
             quarter: 1,
+            revenue: 50,
+            profit: 51,
+        },
+        {
+            year: 2022,
+            quarter: 2,
             revenue: 50,
             profit: 51,
         },

@@ -1,5 +1,5 @@
 
-interface TableHeaderCellGrouping {
+export interface TableHeaderCellGrouping {
     value?: string;
     count: number;
 }
@@ -10,13 +10,12 @@ interface TableHeader {
     subRows: string[][];
 }
 
-
 interface TableSubRow {
     value?: string;
     cells: string[];
 }
 
-interface TableRow {
+export interface TableRow {
     value?: string;
     subRows: TableSubRow[];
 }
