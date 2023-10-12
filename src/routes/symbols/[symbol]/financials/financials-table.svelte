@@ -4,7 +4,7 @@
 	export let table: Table;
 </script>
 
-<table class="border">
+<table>
 	<thead>
 		{#each table.header.groupingRows as row}
 			<tr>
