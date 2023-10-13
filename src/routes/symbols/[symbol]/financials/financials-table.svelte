@@ -1,7 +1,5 @@
 <script lang="ts">
-	import type { Table } from './financials-table';
-
-	export let table: Table;
+	export let table: any;
 </script>
 
 <table>

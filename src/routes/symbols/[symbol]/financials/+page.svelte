@@ -1,10 +1,17 @@
-<script lang="ts">
-	import { page } from '$app/stores';
+<div>oi</div>
 
-	import { type SymbolFinancials, type Financial, getFinancialsYear, getFinancialsQuarter } from './financials';
+<!-- <OldTablebleRowang="ts">
+	import { page } from '$app/stores';OldTableHeaderCellGrouping
+		type SymbolFinancials,
+		type Financial,
+		getFinancialsYear,
+		getFinancialsQuarter
+	} from './financials2';
 
-	import type { Table, TableHeaderCellGrouping, TableRow } from './financials-table';
+	import type { getHeadRows, Table, TableHeaderCellGrouping, TableRow } from './financials-table';
 	import FinancialsTable from './financials-table.svelte';
+
+	import { formatMoney, formatPercentage } from '$lib/formatters';
 
 	let symbol: string = $page.params.symbol;
 
@@ -13,21 +20,16 @@
 
 	let financials = financialsQuarter;
 
-	interface KeyValuePair<T> {
-		[key: string]: T;
-	}
 
-	var yearsCount: KeyValuePair<number> = financials.nominal.reduce((acc, item) => {
+	var yearsCount= financials.nominal.reduce((acc, item) => {
 		let key = item.year.toString();
 
-		if (!(key in acc)) {
-			acc[key] = 0;
-		}
+		if (!(key in OldTableHeaderCellGrouping
 
 		acc[key]++;
 
 		return acc;
-	}, {} as KeyValuePair<number>);
+	}, {});
 
 	var yearsRow: TableHeaderCellGrouping[] = Object.keys(yearsCount).map((p) => {
 		return {
@@ -40,30 +42,13 @@
 
 	var financialsColumns = [
 		{
-			key: 'Revenue',
-			value: (p: Financial) => p.revenue
-		},
+			keyOldTableRowe: (p: Financial) => p.revenue
+		}
 		// {
 		// 	key: 'revenue',
 		// 	value: 'other'
 		// }
 	];
-
-	let formatMoney = (p: number | null | undefined): string => {
-		if (p == null) {
-			return '-'
-		}
-	
-		return p.toFixed(2);
-	};
-
-	let formatPercentage = (p: number | null | undefined): string => {
-		if (p == null) {
-			return '-'
-		}
-	
-		return `${p.toFixed(2)} %`;
-	};
 
 	var bodyRows: TableRow[] = financialsColumns.map((p) => {
 		return {
@@ -84,7 +69,7 @@
 				{
 					value: 'growth-3',
 					cells: financials.growth3.map((pp) => formatPercentage(p.value(pp)))
-				},
+				},OldTable
 				{
 					value: 'growth-4',
 					cells: financials.growth4.map((pp) => formatPercentage(p.value(pp)))
@@ -103,4 +88,4 @@
 	};
 </script>
 
-<FinancialsTable {table} />
+<FinancialsTable {table} /> -->
