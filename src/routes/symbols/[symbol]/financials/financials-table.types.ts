@@ -1,7 +1,13 @@
 
-type TableRowGroup = TableRow[];
+type TableRowGroup = {
+    label?: string,
+    rows: TableRow[],
+};
 
-type TableRow = TableRowCell[];
+type TableRow = {
+    label?: string,
+    cells: TableRowCell[],
+};
 
 type TableRowCell = {
     value?: string;

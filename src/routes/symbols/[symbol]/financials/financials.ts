@@ -1,10 +1,14 @@
+export enum FinancialsTimeframe {
+    year,
+    quarter,
+};
 
 let timeframe: FinancialsTimeframe = FinancialsTimeframe.year;
 
-export const getTimeframe = () => timeframe;
+export const getTimeframe = (): FinancialsTimeframe => timeframe;
 
 
-let financialFields: FinancialsFieldConfiguration[] = [
+let financialFieldsConfig: FinancialsFieldConfiguration[] = [
     {
         label: "Revenue",
         accessor: p => p.revenue,
@@ -13,14 +17,14 @@ let financialFields: FinancialsFieldConfiguration[] = [
     {
         label: "Profit",
         accessor: p => p.profit,
-        hidden: true,
+        // hidden: true,
     }
 ]
 
-export const getFinancialFields = () => financialFields;
+export const getFinancialFieldsConfig = (): FinancialsFieldConfiguration[] => financialFieldsConfig;
 
 
-let financialsReports: FinancialsReportConfiguration[] = [
+let financialsReportsConfig: FinancialsReportConfiguration[] = [
     {
         key: 'nominal',
         label: 'M',
@@ -54,21 +58,17 @@ let financialsReports: FinancialsReportConfiguration[] = [
     }
 ];
 
-export const getFinancialsReports = () => financialsReports;
+export const getFinancialsReportsConfig = (): FinancialsReportConfiguration[] => financialsReportsConfig;
 
 
 const formatNumber = (p: Nullable<number>): string => {
-    if (p == null) {
-        return '-';
-    }
-
-    return p.toFixed(2);
+    return p == null
+        ? '-'
+        : p.toFixed(2);
 };
 
 const formatPercentage = (p: Nullable<number>): string => {
-    if (p == null) {
-        return '-';
-    }
-
-    return `${p.toFixed(2)} %`;
+    return p == null
+        ? '-'
+        : `${p.toFixed(2)} %`;
 };

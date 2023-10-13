@@ -11,11 +11,6 @@ type Financial = {
     profit?: number;   
 };
 
-enum FinancialsTimeframe {
-    year,
-    quarter,
-};
-
 type FinancialsReportConfiguration = {
     key: string,
     label?: string,
