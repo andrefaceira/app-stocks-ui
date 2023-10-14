@@ -1,4 +1,3 @@
-import { getFinancialFieldsConfig, getFinancialsReportsConfig } from './financials';
 import { FinancialsTimeframe } from './financials';
 
 
@@ -39,12 +38,12 @@ export const getHeadRows = (financialReports: FinancialReport[], timeframe: Fina
     }];
 };
 
-export const getBodyRows = (financialReports: FinancialReport[]): TableRowGroup[] => {
-    return getFinancialFieldsConfig()
+export const getBodyRows = (financialReports: FinancialReport[], financialFieldsConfig: FinancialsFieldConfiguration[], financialsReportsConfig: FinancialsReportConfiguration[]): TableRowGroup[] => {
+    return financialFieldsConfig
         .filter(field => !field.hidden)
         .map(field => ({
             label: field.label,
-            rows: getFinancialsReportsConfig()
+            rows: financialsReportsConfig
                 .filter(config => !config.hidden)
                 .filter(config => financialReports
                     .filter(report => report.type == config.key).length > 0)
