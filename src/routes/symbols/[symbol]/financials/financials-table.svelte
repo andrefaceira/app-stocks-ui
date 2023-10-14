@@ -4,9 +4,23 @@
 
 	export let financialReports: FinancialReport[];
 	export let timeframe: FinancialsTimeframe;
+	export let fieldsConfig: FinancialsFieldConfiguration[];
+	export let financialsReportConfig: FinancialsReportConfiguration[];
 
 	const headRows: TableRowGroup[] = getHeadRows(financialReports, timeframe);
-	const bodyRows: TableRowGroup[] = getBodyRows(financialReports);
+	const bodyRows: TableRowGroup[] = getBodyRows(
+		financialReports,
+		fieldsConfig,
+		financialsReportConfig
+	);
+
+	function onRowClicked(index: number): FinancialsFieldConfiguration[] {
+		fieldsConfig[index].selected = fieldsConfig[index].selected ? false : true;
+
+		console.log(fieldsConfig);
+
+		return fieldsConfig;
+	}
 </script>
 
 <table>
@@ -30,10 +44,10 @@
 		</thead>
 	{/each}
 
-	{#each bodyRows as rowGroup}
-		<tbody>
+	{#each bodyRows as rowGroup, rowIndex}
+		<tbody class={fieldsConfig[rowIndex].selected ? 'bg-base-200': ''}>
 			{#each rowGroup.rows as row, i}
-				<tr>
+				<tr on:click={() => onRowClicked(rowIndex)}>
 					{#if i == 0}
 						<td rowspan={rowGroup.rows.length}>
 							{rowGroup.label ?? ''}
